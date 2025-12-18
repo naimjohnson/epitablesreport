@@ -1,0 +1,18 @@
+Package: epitablesreport
+Type: Package
+Title: Creates Epidemiological Tables and Reports
+Version: 0.1.0
+Authors@R: person("Naim", "Johnson",
+           email = "naim.johnson@example.com",
+           role = c("aut", "cre"))
+Description: Tools to generate publication quality tables and brief interpretations of regression model results. 
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports:
+  broom,
+  dplyr,
+  flextable,
+  officer,
+  glue
+RoxygenNote: 7.3.3
