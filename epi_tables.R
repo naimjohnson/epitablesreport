@@ -5,12 +5,6 @@
 #' @param include_intercept Logical; include intercept row
 #' @return A formatted tibble
 #' @export
-# Prevent R CMD check NOTES
-utils::globalVariables(c(
-  "%>%", "term", "estimate", "conf.low", "conf.high", "p.value",
-  "estimate_ci", "sig"
-))
-
 epi_rep_table <- function(model, digits = 2, include_intercept = FALSE) {
 
   results <- tidy_epi_model(model)

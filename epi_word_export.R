@@ -4,56 +4,39 @@
 #' @param file Path to Word file
 #' @return A Word document saved to disk
 #' @export
-# Prevent R CMD check NOTES
-utils::globalVariables(c(
-  "%>%", "term", "estimate", "conf.low", "conf.high", "p.value",
-  "estimate_ci", "sig"
-))
 
-epi_export_word <- function(model, file = "epi_regression_report.docx") {
+epi_export_word <- function(model, file = "epi_report.docx") {
 
-  # Create table
-  ft <- epi_flextable(model)
-
-  # Create interpretation text
-  interpretation <- epi_brief_report(model)
-
-  # Create Word document
   doc <- officer::read_docx()
 
-  # Add title
+  # Title
   doc <- officer::body_add_par(
-    x = doc,
-    value = "Epidemiologic Regression Results",
+    doc,
+    "Epidemiologic Regression Results",
     style = "heading 1"
   )
 
-  # Add flextable (NOTE: from flextable package)
+  # Add regression results table
   doc <- flextable::body_add_flextable(
-    x = doc,
-    value = ft
+    doc,
+    epi_flextable(model)
   )
 
-  # Blank line
-  doc <- officer::body_add_par(doc, value = "")
-
-  # Interpretation heading
+  # Interpretation section
   doc <- officer::body_add_par(
-    x = doc,
-    value = "Interpretation",
+    doc,
+    "Interpretation of Results",
     style = "heading 2"
   )
 
-  # Interpretation text
+  # Add single block of text (full report)
+  interpretation_text <- paste(epi_brief_report(model), collapse = " ")
   doc <- officer::body_add_par(
-    x = doc,
-    value = interpretation,
+    doc,
+    interpretation_text,
     style = "Normal"
   )
 
-  # Save document
+  # Save Word document
   print(doc, target = file)
-
-  message("Word document saved to: ", normalizePath(file))
 }
-

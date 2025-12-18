@@ -3,11 +3,6 @@
 #' @param model A fitted regression model
 #' @return A flextable object
 #' @export
-# Prevent R CMD check NOTES
-utils::globalVariables(c(
-  "%>%", "term", "estimate", "conf.low", "conf.high", "p.value",
-  "estimate_ci", "sig"
-))
 
 epi_flextable <- function(model) {
 

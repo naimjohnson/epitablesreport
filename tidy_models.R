@@ -4,11 +4,6 @@
 #' @param conf_level Confidence level for intervals
 #' @return A tibble of model results
 #' @export
-# Prevent R CMD check NOTES
-utils::globalVariables(c(
-  "%>%", "term", "estimate", "conf.low", "conf.high", "p.value",
-  "estimate_ci", "sig"
-))
 
 tidy_epi_model <- function(model, conf_level = 0.95) {
 
