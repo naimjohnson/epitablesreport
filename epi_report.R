@@ -3,7 +3,6 @@
 #' @param model A fitted regression model
 #' @return Character string summary
 #' @export
-
 epi_brief_report <- function(model) {
 
   results <- tidy_epi_model(model) %>%

@@ -3,7 +3,6 @@
 #' @param model A fitted regression model
 #' @return A flextable object
 #' @export
-
 epi_flextable <- function(model) {
 
   tab <- epi_rep_table(model)

@@ -4,7 +4,6 @@
 #' @param conf_level Confidence level for intervals
 #' @return A tibble of model results
 #' @export
-
 tidy_epi_model <- function(model, conf_level = 0.95) {
 
   if (inherits(model, "glm") && model$family$family == "binomial") {

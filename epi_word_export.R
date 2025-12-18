@@ -4,7 +4,6 @@
 #' @param file Path to Word file
 #' @return A Word document saved to disk
 #' @export
-
 epi_export_word <- function(model, file = "epi_report.docx") {
 
   doc <- officer::read_docx()
