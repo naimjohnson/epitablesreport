@@ -12,6 +12,6 @@ epi_flextable <- function(model) {
     flextable::bold(part = "header") %>%
     flextable::align(align = "center", part = "all") %>%
     flextable::set_caption(
-      caption = "Regression Results with 95% Confidence Interals"
+      caption = "Regression Results with 95% Confidence Intervals"
     )
 }
